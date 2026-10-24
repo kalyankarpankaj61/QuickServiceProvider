@@ -1,0 +1,206 @@
+﻿@model LoginDto
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Service Provider Company Admin Login</title>
+
+    <!-- CoreUI CSS -->
+    <link rel="stylesheet"
+          href="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/vendors/simplebar/css/simplebar.css">
+
+    <link rel="stylesheet"
+          href="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/css/vendors/simplebar.css">
+
+    <link rel="stylesheet"
+          href="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/css/style.css">
+
+    <link rel="stylesheet"
+          href="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/css/examples.css">
+
+    <!-- CoreUI Configuration -->
+    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/js/config.js"></script>
+
+    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/js/color-modes.js"></script>
+</head>
+
+<body>
+    <div class="bg-body-tertiary min-vh-100 d-flex align-items-center">
+
+        <div class="container" style="max-width: 32rem;">
+
+            <div class="d-flex flex-column gap-4">
+
+                <!-- Company Admin Branding -->
+                <div class="text-center">
+
+                    <div class="mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="64"
+                             height="64"
+                             fill="currentColor"
+                             class="text-primary"
+                             viewBox="0 0 16 16">
+
+                            <path d="M8 0 1 3v4c0 4.2 2.9 7.2 7 9 4.1-1.8 7-4.8 7-9V3L8 0zm0 1.2 5.8 2.5v3.3c0 3.4-2.2 5.9-5.8 7.5-3.6-1.6-5.8-4.1-5.8-7.5V3.7L8 1.2z" />
+
+                            <path d="M7 3h2v3h3v2H9v3H7V8H4V6h3V3z" />
+                        </svg>
+                    </div>
+
+                    <h2 class="text-primary fw-bold">
+                        Service Provider Portal
+                    </h2>
+
+                    <p class="text-body-secondary">
+                        Company Administrator Login
+                    </p>
+
+                </div>
+
+                <!-- Login Card -->
+                <div class="card p-4">
+
+                    <div class="card-body d-flex flex-column gap-4">
+
+                        <h2 class="h5 text-center">
+                            Login to your account
+                        </h2>
+
+                        <form asp-controller="CompanyAdmin"
+                              asp-action="Login"
+                              method="post">
+
+                            <!-- Company Email -->
+                            <div class="mb-3">
+
+                                <label asp-for="EmailId" class="form-label">
+                                    Company Email Address
+                                </label>
+
+                                <input class="form-control" asp-for="EmailId">
+                                <span asp-validation-for="EmailId"></span>
+
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3">
+
+                                <div class="d-flex justify-content-between">
+
+                                    <label for="Password" class="form-label">
+                                        Password
+                                    </label>
+
+                                    <a href="/CompanyAdmin/ForgotPassword">
+                                        Forgot password?
+                                    </a>
+
+                                </div>
+
+                                <input class="form-control"
+                                       id="Password"
+                                       name="Password"
+                                       type="password"
+                                       placeholder="Enter your password"
+                                       autocomplete="current-password"
+                                       required>
+
+                            </div>
+
+                            <!-- Remember Me -->
+                            <div class="mb-3">
+
+                                <label class="form-check">
+
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="RememberMe"
+                                           value="true">
+
+                                    <span class="form-check-label">
+                                        Remember me on this device
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                            <!-- Error Message -->
+                            @if (ViewBag.Error != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewBag.Error
+                                </div>
+                            }
+
+                            <!-- Login Button -->
+                            <div class="d-grid">
+
+                                <button class="btn btn-primary"
+                                        type="submit">
+                                    Sign In as Company Admin
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="position-relative">
+
+                            <hr>
+
+                            <div class="position-absolute top-50 start-50 translate-middle bg-body px-2 text-body-tertiary text-uppercase small">
+                                or
+                            </div>
+
+                        </div>
+
+                        <!-- Registration -->
+                        <div class="text-center">
+
+                            <p class="text-body-secondary mb-2">
+                                New service provider company?
+                            </p>
+
+                            <a class="btn btn-outline-primary w-100"
+                               href="/CompanyAdmin/Register">
+                                Register Your Company
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="text-center text-body-secondary small">
+
+                    <p class="mb-1">
+                        Authorized company administrators only.
+                    </p>
+
+                    <p class="mb-0">
+                        &copy; @DateTime.Now.Year Service Provider Portal
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CoreUI JavaScript -->
+    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/vendors/@@coreui/coreui/js/coreui.bundle.min.js"></script>
+
+    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/vendors/simplebar/js/simplebar.min.js"></script>
+
+</body>
+</html>
