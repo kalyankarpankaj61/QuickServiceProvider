@@ -22,6 +22,7 @@
   <ItemGroup>
     <Folder Include="Areas\CompanyArea\Data\" />
     <Folder Include="Areas\CompanyArea\Models\" />
+    <Folder Include="wwwroot\servicephotos\" />
   </ItemGroup>
 
   <ItemGroup>

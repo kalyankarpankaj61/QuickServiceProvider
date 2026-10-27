@@ -61,7 +61,7 @@ namespace Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("MainCategoryID"));
 
-                    b.Property<string>("MainCategorynName")
+                    b.Property<string>("MainCategoryName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MainCategoryID");
@@ -72,12 +72,12 @@ namespace Infra.Migrations
                         new
                         {
                             MainCategoryID = 1L,
-                            MainCategorynName = "Electrical Services"
+                            MainCategoryName = "Electrical Services"
                         },
                         new
                         {
                             MainCategoryID = 2L,
-                            MainCategorynName = "Plumbing"
+                            MainCategoryName = "Plumbing"
                         });
                 });
 

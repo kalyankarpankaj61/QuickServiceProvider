@@ -1,0 +1,89 @@
+﻿@model Service
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-warning">New Service</h2>
+    </div>
+    <div class="card-body">
+        <div class="container mt-4">
+            <div class="text-danger">
+                @TempData["Message"]
+            </div>
+            <form asp-action="Create" method="post">
+                <!-- Name -->
+                <div class="mb-4">
+                    <label class="form-label">Title</label>
+                    <input class="form-control" asp-for="Title">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" asp-for="Description"> </textarea>
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Charges</label>
+                    <input class="form-control" asp-for="Charges">
+                    <span class="text-danger" asp-validation-for="Charges"></span>
+                </div>    
+                <div class="mb-4">
+                    <label class="form-label">Main Category Name</label>
+                    <select id="MainCategoryID" asp-items="@ViewBag.MainCategories">
+                        <option value="0">Select</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Sub Category Name</label>
+                    <select asp-for="SubCategoryID" asp-items="@ViewBag.SubCategories">
+                        <option value="0">Select</option>
+                    </select>
+                    
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Charges Type</label>
+                    <select asp-for="SubCategoryID" asp-items="@Html.GetEnumSelectList<ChargesTypeEnum>()">
+                        <option>Select</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="ChargesType"></span>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/jquery/jquery.min.js"></script>
+<script type="text/javascript" >
+    $(function () {
+        $("#MainCategoryID").change(function () {
+
+            var mcatid = $(this).val();
+           
+            var apiurl = '/CommonAjax/GetSubCategories/' + mcatid;
+            //alert(apiurl);
+            $.ajax({
+                url:apiurl,
+                type:"Get",
+                contentType:"application/json",
+                success: function (result)
+                { 
+                    //alert(JSON.stringify(result));
+                    $("#SubCategoryID").empty();
+                    $.each(result, function (index,item){
+                        var opt = `<option value=${item.subCategoryId}>${item.subCategoryName}</option>`;
+                        $("#SubCategoryID").append(opt);
+                    });
+
+                },
+                error: function (err)
+                { 
+                    alert(JSON.stringify(err));
+                }
+            });
+        });
+    });
+</script>

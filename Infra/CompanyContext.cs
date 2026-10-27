@@ -20,8 +20,8 @@ namespace Infra
                 new ServiceProviderCompany() { ServiceProviderCompanyID = 1, ServiceProviderCompanyName = "Ri-Tech", Address = "Akurdi pune", EmailId="contact@gmail.com",MobileNo="8963251456",WebsiteUrl= "https://ritechpune.com",Password="abcd"  }
                 );
             modelBuilder.Entity<MainCategory>().HasData(
-                new MainCategory() { MainCategoryID=1,MainCategorynName= "Electrical Services" },
-                new MainCategory() { MainCategoryID = 2, MainCategorynName = "Plumbing" }
+                new MainCategory() { MainCategoryID=1, MainCategoryName = "Electrical Services" },
+                new MainCategory() { MainCategoryID = 2, MainCategoryName = "Plumbing" }
                 );
             modelBuilder.Entity<SubCategory>().HasData(
                 new SubCategory() { SubCategoryID=1,SubCategoryName= "Pipe Leakage Repair",MainCategoryID=1},

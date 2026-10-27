@@ -9,6 +9,9 @@ builder.Services.AddDbContextPool<CompanyContext>(p=>p.UseLazyLoadingProxies().U
 builder.Services.AddScoped<ICompanyRepo,CompanyRepo>();
 builder.Services.AddScoped<IMainCategoryrepo,MainCategoryRepo>();
 builder.Services.AddScoped<ISubCategoryRepo,SubCategoryRepo>();
+builder.Services.AddScoped<IDispatchAgencyRepo, DispatchAgencyRepo>();
+builder.Services.AddScoped<IServiceRepo, ServiceRepo>();
+builder.Services.AddScoped<IServicePhotosRepo, ServicePhotosRepo>();
 var app = builder.Build();
 
 

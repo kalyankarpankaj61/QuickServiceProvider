@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ServicePhotos>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="text-info">Service Photo List</h3>
+    </div>
+    <div class="text-danger">
+        @TempData["Message"]
+    </div>
+
+    <div class="card-body">
+        <a asp-action="Create" class="btn btn-success my-3">Create New</a>
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Uploaded Date</th>
+                    <th scope="col">Service</th>
+                    <th scope="col">Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <th scope="row">@srno</th>
+                        <td>
+                            <img width="80" height="80" src="@temp.PhotoPath" />
+                        </td>
+                        <td>@temp.UploadedDate</td>
+                        <td>@temp.service.Title</td>
+                          <td>
+                            <a asp-action="Edit" asp-route-id="@temp.ServicePhotosID" class="btn btn-info">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@temp.ServicePhotosID" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

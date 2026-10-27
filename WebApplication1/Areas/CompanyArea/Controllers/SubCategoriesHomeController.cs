@@ -24,13 +24,13 @@ namespace Web.Areas.CompanyArea.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            ViewBag.MainCategories=new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategorynName");
+            ViewBag.MainCategories=new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategoryName");
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(SubCategory rec)
         {
-            ViewBag.MainCategories = new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategorynName");
+            ViewBag.MainCategories = new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategoryName");
             if (ModelState.IsValid)
             {
                 var res = await this.SubCategoryRepo.Insert(rec);
@@ -52,13 +52,13 @@ namespace Web.Areas.CompanyArea.Controllers
         public async Task<IActionResult> Edit(Int64 id)
         {
             var res = await this.SubCategoryRepo.GetById(id);
-            ViewBag.MainCategories = new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategorynName");
+            ViewBag.MainCategories = new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategoryName");
             return View(res);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(SubCategory rec)
         {
-            ViewBag.MainCategories = new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategorynName");
+            ViewBag.MainCategories = new SelectList(await this.mainCategoryrepo.GetAll(), "MainCategoryID", "MainCategoryName");
             if (ModelState.IsValid)
             {
                 var res = await this.SubCategoryRepo.Update(rec);

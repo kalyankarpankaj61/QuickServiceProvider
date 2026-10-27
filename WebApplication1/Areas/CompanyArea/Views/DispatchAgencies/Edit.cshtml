@@ -1,0 +1,49 @@
+﻿@model DispatchAgency
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-warning">Edit Dispatch Agency</h2>
+    </div>
+    <div class="card-body">
+        <div class="container mt-4">
+            <div class="text-danger">
+                @TempData["Message"]
+            </div>
+            <form asp-action="Edit" method="post">
+                <!-- Name -->
+                <input type="hidden" asp-for="DispatchAgencyID" />
+                <div class="mb-4">
+                    <label class="form-label">Dispatch Agency Name</label>
+                    <input class="form-control" asp-for="DispatchAgencyName">
+                    <span class="text-danger" asp-validation-for="DispatchAgencyName"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Contact Person Name</label>
+                    <input class="form-control" asp-for="ContactPersonName">
+                    <span class="text-danger" asp-validation-for="ContactPersonName"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-control" asp-for="Address"></textarea>
+                    <span class="text-danger" asp-validation-for="Address"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Email Id</label>
+                    <input class="form-control" asp-for="EmailId">
+                    <span class="text-danger" asp-validation-for="EmailId"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Mobile No</label>
+                    <input class="form-control" asp-for="ContactNo">
+                    <span class="text-danger" asp-validation-for="ContactNo"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

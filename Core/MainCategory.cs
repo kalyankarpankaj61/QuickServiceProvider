@@ -9,7 +9,7 @@ namespace Core
     public class MainCategory
     {
         public Int64 MainCategoryID { get; set; }
-        public string MainCategorynName { get; set; }
+        public string MainCategoryName { get; set; }
         public virtual List<SubCategory> SubCategories { get; set; }
     }
 }

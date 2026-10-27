@@ -1,4 +1,5 @@
 ﻿using Core;
+using Infra.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Infra.Repositories
 {
     public interface ISubCategoryRepo :IGeneric<SubCategory>
     {
+        Task<List<SubCategoryDto>> GetByMainCategories(Int64 mainCategoryID);
     }
 }

@@ -1,0 +1,41 @@
+﻿@model ServicePhotos
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-warning">Edit Service</h2>
+    </div>
+    <div class="card-body">
+        <div class="container mt-4">
+            <div class="text-danger">
+                @TempData["Message"]
+            </div>
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="ServicePhotosID" />
+                <!-- Name -->
+                <div class="mb-4">
+                    <label class="form-label">Service Photo</label>
+                    <input type="file" class="form-control" asp-for="Photo">
+                    <span class="text-danger" asp-validation-for="Photo"></span>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Uploaded Date</label>
+                    <input class="form-control" asp-for="UploadedDate">
+                    <span class="text-danger" asp-validation-for="UploadedDate"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Select </label>
+                    <select asp-for="ServiceID" asp-items="@ViewBag.Services">
+                        <option value="0">Select</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="ServiceID"></span>
+                </div>
+                <!-- Buttons -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
