@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Service Provider Company Admin Login</title>
-
+    
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/jquery-validate/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <!-- CoreUI CSS -->
     <link rel="stylesheet"
           href="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/vendors/simplebar/css/simplebar.css">
@@ -22,9 +25,9 @@
           href="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/css/examples.css">
 
     <!-- CoreUI Configuration -->
-    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/js/config.js"></script>
+   @*  <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/js/config.js"></script>
 
-    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/js/color-modes.js"></script>
+    <script src="~/coreui-free-bootstrap-admin-template-v5.5.0-dist/js/color-modes.js"></script> *@
 </head>
 
 <body>
@@ -70,9 +73,8 @@
                             Company Admin Login
                         </h2>
 
-                        <form asp-controller="CompanyAdmin"
-                              asp-action="Login"
-                              method="post">
+                        <form asp-action="SignIn" method="post">
+                              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                             <!-- Company Email -->
                             <div class="mb-3">
@@ -82,7 +84,7 @@
                                 </label>
 
                                 <input class="form-control" asp-for="EmailId">
-                                <span asp-validation-for="EmailId"></span>
+                                <span asp-validation-for="EmailId" class="text-danger"></span>
 
                             </div>
 
@@ -94,51 +96,29 @@
                                     <label asp-for="Password" class="form-label">
                                         
                                     </label>
-
-
-                                    <a href="/CompanyAdmin/ForgotPassword">
-                                        Forgot password?
-                                    </a>
-
                                 </div>
 
                                 <input class="form-control" asp-for="Password">
-                                <span asp-validation-for="Password"></span>
+                                <span asp-validation-for="Password" class="text-danger"></span>
 
                             </div>
 
-                            <!-- Remember Me -->
-                            <div class="mb-3">
+                           
 
-                                <label class="form-check">
-
-                                    <input class="form-check-input"
-                                           type="checkbox"
-                                           name="RememberMe"
-                                           value="true">
-
-                                    <span class="form-check-label">
-                                        Remember me on this device
-                                    </span>
-
-                                </label>
-
-                            </div>
-
-                            <!-- Error Message -->
+                           @*  <!-- Error Message -->
                             @if (ViewBag.Error != null)
                             {
                                 <div class="alert alert-danger" role="alert">
                                     @ViewBag.Error
                                 </div>
-                            }
+                            } *@
 
                             <!-- Login Button -->
                             <div class="d-grid">
 
                                 <button class="btn btn-primary"
                                         type="submit">
-                                    Sign In as Company Admin
+                                    Sign In
                                 </button>
 
                             </div>
@@ -153,20 +133,6 @@
                             <div class="position-absolute top-50 start-50 translate-middle bg-body px-2 text-body-tertiary text-uppercase small">
                                 or
                             </div>
-
-                        </div>
-
-                        <!-- Registration -->
-                        <div class="text-center">
-
-                            <p class="text-body-secondary mb-2">
-                                New service provider company?
-                            </p>
-
-                            <a class="btn btn-outline-primary w-100"
-                               href="/CompanyAdmin/Register">
-                                Register Your Company
-                            </a>
 
                         </div>
 

@@ -1,0 +1,28 @@
+﻿@model MainCategory
+<div class="card"> 
+    <div class="card-header">
+        <h2 class="text-warning">New Main Category</h2>
+    </div>
+    <div class="card-body">
+        <div class="container mt-4">
+            <div class="text-danger">
+                @TempData["Message"]
+            </div>
+            <form  asp-action="Create" method="post">
+                <!-- Name -->
+                <div class="mb-4">
+                    <label class ="form-label">Main Category Name</label>
+                    <input class="form-control" asp-for="MainCategorynName">
+                    <span class="text-danger" asp-validation-for="MainCategorynName"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

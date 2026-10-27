@@ -13,7 +13,7 @@ namespace Infra.Dtos
         [EmailAddress(ErrorMessage ="Invalid Email Id")]
         public string EmailId { get; set; }
         [Required(ErrorMessage ="Password required")]
-        
+        [DataType(DataType.Password)]  
         public string Password { get; set; }
     }
 }

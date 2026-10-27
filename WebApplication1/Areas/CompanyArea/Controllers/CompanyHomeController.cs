@@ -3,7 +3,7 @@
 namespace Web.Areas.CompanyArea.Controllers
 {
     [Area("CompanyArea")]
-    public class CompanyHome : Controller
+    public class CompanyHomeController : Controller
     {
         public IActionResult Index()
         {
